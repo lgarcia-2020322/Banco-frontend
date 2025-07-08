@@ -1,0 +1,118 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2b2f36; /* fondo general oscuro minimalista */
+  color: #ffffff;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.sidebar img.logo {
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #5b7da3;
+}
+
+.sidebar img.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* NAVBAR SUPERIOR */
+.navbar {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 220px;
+}
+
+/* CONTENIDO PRINCIPAL */
+.dashboard-content {
+  margin-left: 220px;
+  margin-top: 60px;
+  width: calc(100% - 220px);
+  height: calc(100vh - 60px);
+  background-color: #f5f6f8; /* o el color que estés usando de fondo */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* centra verticalmente */
+  align-items: center;      /* centra horizontalmente */
+  text-align: center;
+}
+
+.dashboard-content h1 {
+    justify-content: center;
+  font-size: 2.2rem;
+  color: #1d1d1d;
+  margin-bottom: 1rem;
+}
+
+.dashboard-content p {
+  color: #444;
+  font-size: 1.1rem;
+}
+
+/* BOTÓN DE LOGOUT */
+.Btn {
+  background-color: #3c3f46;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Btn:hover {
+  background-color: #5b7da3;
+  color: white;
+}
+
+.Btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+}
+.dashboard-box {
+  background-color: transparent; /* o el mismo color que el fondo principal */
+  padding: 1.5rem;
+  border-radius: 6px;
+}
