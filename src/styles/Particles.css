@@ -1,0 +1,22 @@
+.auth-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+}
+
+
+.particles-container canvas {
+  position: absolute;
+  width: 100vw !important;
+  height: 100vh !important;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+}
