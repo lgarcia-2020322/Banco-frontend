@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import { getAllFavorites, createFavorite, deleteFavorite } from '../services/favorite.api'
 import { useAuth } from './AuthContext'
 import { toast } from 'react-toastify'
-//a
+
 export const FavoritesContext = createContext()
 export const useFavoritesContext = () => useContext(FavoritesContext)
 
@@ -21,7 +21,7 @@ export const FavoritesProvider = ({ children }) => {
 
   useEffect(() => {
   if (user?.role === 'CLIENT') {
-    console.log('Cargando favoritos de:', user.username)
+    console.log('Cargando favoritos de:',  user.username, user._id || user.id)
     loadFavorites()
   }
 }, [user])
@@ -31,7 +31,7 @@ export const FavoritesProvider = ({ children }) => {
     const res = await createFavorite(data)
     if (res.success) {
         toast.success('Favorito agregado')
-        await loadFavorites() // 🔁 forza recarga visual
+        await loadFavorites() 
     } else {
         toast.error(res.message || 'Error al agregar favorito')
     }
