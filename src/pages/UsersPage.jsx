@@ -12,7 +12,7 @@ export const UsersPage = () => {
   if (role !== 'ADMIN') return <Navigate to="/dashboard" />
 
   const {
-    users,
+    users = [], // <-- valor por defecto para evitar error
     searchUsers,
     deleteUser,
     loadAllUsers
@@ -46,10 +46,10 @@ export const UsersPage = () => {
         <button onClick={loadAllUsers}>Ver todos</button>
       </div>
 
-      {users.length === 0 ? (
+      {Array.isArray(users) && users.length === 0 ? (
         <p>No hay usuarios</p>
       ) : (
-        users.map((u) => (
+        users?.map((u) => (
           <UserCard
             key={u._id}
             user={u}

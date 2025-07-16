@@ -5,6 +5,7 @@ import './styles/global.css'
 import './styles/auth.css'
 import './styles/global.css'
 import './styles/dashboard.css'
+import './styles/productStyle.css'
 function App() {
   const elements = useRoutes(routes)
   return (

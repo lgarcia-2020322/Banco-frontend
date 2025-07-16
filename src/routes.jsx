@@ -4,8 +4,10 @@ import AuthPage from './pages/AuthPage.jsx'
 import  DashboardPage  from './pages/DashboardPage'
 import { useAuth } from './contexts/AuthContext'
 import { UsersPage } from './pages/UsersPage'
-
-
+import { ClientsPage } from './pages/ClientsPage'
+import { ClientProfilePage } from './pages/ClientProfilePage'
+import { FavoritesPage } from './pages/FavoritesPage'
+import { ProductsPage } from './pages/ProductsPage'
 export const routes = [
   {
     path: '/',
@@ -28,16 +30,20 @@ export const routes = [
         element: <h2>Bienvenido al panel</h2>
       },
       {
+        path: 'profile',
+        element: <ClientOnly><ClientProfilePage /></ClientOnly>
+      },
+      {
         path: 'users',
         element: <AdminOnly><UsersPage /></AdminOnly>
       },
       {
         path: 'clients',
-        element: <AdminOnly><h2>Gestión de Clientes</h2></AdminOnly>
+        element: <AdminOnly><ClientsPage /></AdminOnly>
       },
       {
         path: 'products',
-        element: <AdminOnly><h2>Gestión de Productos</h2></AdminOnly>
+        element: <AdminOnly><ProductsPage /></AdminOnly>
       },
       {
         path: 'transfers',
@@ -49,7 +55,7 @@ export const routes = [
       },
       {
         path: 'favorites',
-        element: <ClientOnly><h2>Favoritos</h2></ClientOnly>
+        element: <ClientOnly><FavoritesPage /></ClientOnly>
       }
     ]
   },

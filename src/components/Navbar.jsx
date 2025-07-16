@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h2>Banco Virtual</h2>
+      <h2 className="logo-sentinel">S   E   N   T   I  N   E   L </h2>
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <span>{user?.role === 'ADMIN' ? `Admin (${user.role})` : user?.name}</span>
 

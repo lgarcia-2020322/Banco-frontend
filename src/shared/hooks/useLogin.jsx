@@ -29,7 +29,11 @@ export const useLogin = () => {
         return
       }
 
-      login(res.data.user, res.data.token)
+      const login = (user, token) => {
+  setUser(user)
+  localStorage.setItem('token', token) // ← ESTA LÍNEA ES LA QUE TE FALTA
+}
+
       toast.success('Sesión iniciada correctamente')
       navigate('/dashboard')
     } catch (err) {
