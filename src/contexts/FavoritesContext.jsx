@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import { getAllFavorites, createFavorite, deleteFavorite } from '../services/favorite.api'
 import { useAuth } from './AuthContext'
 import { toast } from 'react-toastify'
-
+//a
 export const FavoritesContext = createContext()
 export const useFavoritesContext = () => useContext(FavoritesContext)
 
