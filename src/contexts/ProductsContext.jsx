@@ -5,11 +5,13 @@ import {
   deleteProduct,
   updateProduct as updateProductRequest
 } from '../services/product.api'
+import { useAuth } from './AuthContext' // 👈 importar
 
 export const ProductsContext = createContext()
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([])
+  const { user } = useAuth() // 👈 obtener usuario
 
   const loadProducts = async () => {
     const res = await getAllProducts()
@@ -25,10 +27,11 @@ export const ProductsProvider = ({ children }) => {
   const updateProduct = async (id, data) => {
     const res = await updateProductRequest(id, data)
     if (!res.error) {
-        setProducts(products.map(p => p._id === id ? res.updated : p))
+      setProducts(products.map(p => p._id === id ? res.updated : p))
     }
     return res
-    }
+  }
+
   const deleteProductHandler = async (id) => {
     const res = await deleteProduct(id)
     if (!res.error) setProducts(products.filter(p => p._id !== id))
@@ -36,8 +39,10 @@ export const ProductsProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    loadProducts()
-  }, [])
+    if (user?.role === 'ADMIN') {
+      loadProducts()
+    }
+  }, [user]) // 👈 reactiva solo cuando haya user
 
   return (
     <ProductsContext.Provider
