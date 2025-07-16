@@ -2,9 +2,11 @@ import api from './api'
 
 export const getAllFavorites = async () => {
   try {
-    const res = await api.get('/favorite/getAllFavorites') 
+    const res = await api.get('/favorite/getAllFavorites')
+    return res.data
   } catch (err) {
-    return { error: true, message: err?.response?.data?.message || 'Error al obtener favoritos' }
+    console.error(' Error en getAllFavorites:', err)
+    return { success: false, message: 'Error al obtener favoritos' }
   }
 }
 
