@@ -16,11 +16,7 @@ export const ClientsProvider = ({ children }) => {
   const [clients, setClients] = useState([])
   const [clientSelected, setClientSelected] = useState(null)
   const [loading, setLoading] = useState(false)
-  const { user } = useAuth()
-
-  useEffect(() => {
-    if (user?.role === 'ADMIN') loadAllClients()
-  }, [user])
+  const { user } = useAuth() // 👈 Asegúrate que esté antes de usarlo
 
   const loadAllClients = async () => {
     try {
@@ -62,6 +58,12 @@ export const ClientsProvider = ({ children }) => {
       toast.error('Error al eliminar cliente')
     }
   }
+
+  useEffect(() => {
+    if (user?.role === 'ADMIN') {
+      loadAllClients()
+    }
+  }, [user]) // ✅ Solo se dispara cuando el user esté disponible
 
   return (
     <ClientsContext.Provider
