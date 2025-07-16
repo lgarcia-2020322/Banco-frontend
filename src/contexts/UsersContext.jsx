@@ -18,15 +18,11 @@ export const UsersProvider = ({ children }) => {
   const [loading, setLoading] = useState(false)
   const { user } = useAuth()
 
-  useEffect(() => {
-    if (user && user.role === 'ADMIN') loadAllUsers()
-  }, [user])
-
   const loadAllUsers = async () => {
     try {
       setLoading(true)
       const res = await getAllUsers()
-      setUsers(res.users) // ✅ tu API devuelve { users: [...] }
+      setUsers(res.users)
     } catch (err) {
       toast.error('Error al cargar usuarios')
     } finally {
@@ -72,6 +68,13 @@ export const UsersProvider = ({ children }) => {
       toast.error('Error al buscar usuarios')
     }
   }
+
+  // ✅ Cargar usuarios solo si está logueado y es ADMIN
+  useEffect(() => {
+    if (user?.role === 'ADMIN') {
+      loadAllUsers()
+    }
+  }, [user])
 
   return (
     <UsersContext.Provider
