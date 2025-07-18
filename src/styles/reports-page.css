@@ -1,0 +1,387 @@
+.reports-page {
+  background-color: #2a2d3a;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #3a3d4a;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.refresh-all-btn {
+  background: linear-gradient(135deg, #14b8a6, #0891b2);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.refresh-all-btn:hover {
+  background: linear-gradient(135deg, #0891b2, #0e7490);
+  transform: translateY(-1px);
+}
+
+.refresh-all-btn:active {
+  transform: translateY(0);
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.report-card {
+  background-color: #1f2937;
+  border-radius: 12px;
+  border: 1px solid #374151;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.report-card:hover {
+  border-color: #14b8a6;
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.1);
+}
+
+.report-header {
+  background-color: #111827;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #374151;
+}
+
+.report-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #14b8a6;
+}
+
+.refresh-btn {
+  background: transparent;
+  border: 1px solid #374151;
+  color: #9ca3af;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-btn:hover {
+  border-color: #14b8a6;
+  color: #14b8a6;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-icon {
+  font-size: 16px;
+  transition: transform 0.5s ease;
+}
+
+.refresh-icon.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.report-content {
+  padding: 20px;
+  min-height: 200px;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #374151;
+  border-top: 3px solid #14b8a6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ef4444;
+  background-color: #1f1f23;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #dc2626;
+}
+
+.error-icon {
+  font-size: 20px;
+}
+
+.no-data {
+  text-align: center;
+  color: #9ca3af;
+  font-style: italic;
+  padding: 40px 0;
+}
+
+/* Clientes con más movimientos */
+.clients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: #374151;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.client-item:hover {
+  background-color: #4b5563;
+  transform: translateX(4px);
+}
+
+.client-rank {
+  background: linear-gradient(135deg, #14b8a6, #0891b2);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.client-info {
+  flex: 1;
+}
+
+.client-name {
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.client-email {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.client-movements {
+  text-align: right;
+}
+
+.movements-count {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: #14b8a6;
+}
+
+.movements-label {
+  font-size: 12px;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+/* Transferencias diarias */
+.transfers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.transfer-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  background-color: #374151;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.transfer-item:hover {
+  background-color: #4b5563;
+}
+
+.transfer-date {
+  font-size: 14px;
+  color: #14b8a6;
+  font-weight: 500;
+}
+
+.transfer-client {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.transfer-amount {
+  text-align: right;
+}
+
+.currency {
+  color: #9ca3af;
+  margin-right: 4px;
+}
+
+.amount {
+  font-size: 18px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+/* Productos más comprados */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.product-item {
+  background-color: #374151;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.product-item:hover {
+  background-color: #4b5563;
+  transform: translateY(-2px);
+}
+
+.product-rank {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #14b8a6, #0891b2);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.product-info {
+  margin-bottom: 16px;
+}
+
+.product-name {
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.product-category {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.product-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #14b8a6;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reports-page {
+    padding: 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transfer-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .transfer-amount {
+    text-align: left;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
